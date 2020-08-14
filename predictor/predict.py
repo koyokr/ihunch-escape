@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Iterable, List, Tuple, Optional, Dict
+from typing import Iterable, List, Tuple, Optional, Dict, Union
 
 import cv2
 import numpy as np
@@ -100,12 +100,11 @@ class iHunchPredictor:
         pose3d = pose3d.tolist()
         return np.asarray(keypoint + pose2d + pose3d)
 
-    def predict(self, img_bytes: bytes) -> Dict[str, float]:
+    def predict(self, img_bytes: bytes) -> Dict[str, Union[bool, float]]:
         img = np.frombuffer(img_bytes, dtype=np.uint8)
         img = cv2.imdecode(img, cv2.IMREAD_COLOR)
         features = self.extract_features(img)
         if features is None:
-            return None
-        x = np.asarray([features])
-        pred = self.ihunch_predictor.predict_proba(x)[0][1]
-        return {'pred': pred}
+            return {'human': False, 'pred': 0.0}
+        pred = self.ihunch_predictor.predict_proba(np.asarray([features]))[0][1]
+        return {'human': True, 'pred': pred}
