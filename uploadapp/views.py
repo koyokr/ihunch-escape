@@ -5,11 +5,9 @@ from rest_framework.views import APIView
 from rest_framework import status
 from .models import File
 from .serializers import FileSerializer
-# Create your views here.
 
-class iHunchPredictor:
-    def predict(self, img_bytes):
-        return {"ihunch": 0.0}
+from .predictor import iHunchPredictor
+# Create your views here.
 
 
 class FileUploadView(APIView):
