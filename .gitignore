@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#
+.vscode
+/predictor/models/
+/predictor/modules/
+/predictor/pose_extractor/
+/predictor/pose_extractor.so
