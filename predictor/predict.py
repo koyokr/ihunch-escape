@@ -102,9 +102,10 @@ class iHunchPredictor:
 
     def predict(self, img_bytes: bytes) -> Dict[str, float]:
         img = np.frombuffer(img_bytes, dtype=np.uint8)
-        img = cv2.imdecode(img)
+        img = cv2.imdecode(img, cv2.IMREAD_COLOR)
         features = self.extract_features(img)
         if features is None:
             return None
-        pred = self.ihunch_predictor.predict([features])[0][1]
+        x = np.asarray([features])
+        pred = self.ihunch_predictor.predict_proba(x)[0][1]
         return {'pred': pred}
