@@ -1,1 +1,1 @@
-from predictor.predict import iHunchPredictor
+from .predict import iHunchPredictor

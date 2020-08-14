@@ -1,4 +1,3 @@
-import pickle
 from pathlib import Path
 from typing import Iterable, List, Tuple, Optional, Dict
 
@@ -7,11 +6,10 @@ import numpy as np
 from detectron2 import model_zoo
 from detectron2.config import get_cfg
 from detectron2.engine import DefaultPredictor
-
 from xgboost import XGBClassifier
 
-from predictor.modules.inference_engine_pytorch import InferenceEnginePyTorch
-from predictor.modules.parse_poses import parse_poses
+from .modules.inference_engine_pytorch import InferenceEnginePyTorch
+from .modules.parse_poses import parse_poses
 
 
 here = Path(__file__).parent.absolute()

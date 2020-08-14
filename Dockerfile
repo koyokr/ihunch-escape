@@ -12,9 +12,10 @@ RUN PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
 
 WORKDIR /root/ihunch-escape/predictor/lightweight-human-pose-estimation-3d-demo.pytorch
 RUN python setup.py build_ext && \
-    sed -i 's/from models/from predictor.models/g' */*.py && \
-    sed -i 's/from modules/from predictor.modules/g' */*.py && \
-    sed -i 's/from pose_extractor/from predictor.pose_extractor/g' */*.py && \
+    sed -i 's/from models/from ..models/g' modules/*.py && \
+    sed -i 's/from modules/from ..modules/g' models/*.py && \
+    sed -i 's/from modules/from ./g' modules/*.py && \
+    sed -i 's/from pose_extractor/from ..pose_extractor/g' */*.py && \
     mv models modules pose_extractor/build/pose_extractor.so ..
 
 WORKDIR /root/ihunch-escape/predictor
@@ -27,3 +28,4 @@ RUN WGET="wget -q --no-check-certificate" && \
         -O data/xgb-ihunch-prediction.bin
 
 WORKDIR /root/ihunch-escape
+RUN mv predictor uploadapp
