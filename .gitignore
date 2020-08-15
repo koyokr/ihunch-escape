@@ -130,8 +130,6 @@ dmypy.json
 
 #
 .vscode
-/predictor/data/
-/predictor/models/
-/predictor/modules/
-/predictor/pose_extractor/
-/predictor/pose_extractor.so
+/upload/predictor/data/
+/upload/predictor/models/
+/upload/predictor/modules/
