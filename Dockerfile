@@ -26,3 +26,5 @@ RUN WGET="wget -q --no-check-certificate" && \
         -O data/xgb-ihunch-prediction.bin
 
 WORKDIR /root/ihunch-escape
+CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
+EXPOSE 80 443
