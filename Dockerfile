@@ -2,7 +2,7 @@ FROM ufoym/deepo:all-py36-cu101
 
 WORKDIR /root
 RUN PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
-    GIT_CLONE="git clone --depth 10" && \
+    GIT_CLONE="git clone --recursive --depth 1" && \
     $PIP_INSTALL torch==1.6.0+cu101 torchvision==0.7.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html && \
     $PIP_INSTALL detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu101/torch1.6/index.html && \
     $PIP_INSTALL xgboost djangorestframework && \
