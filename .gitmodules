@@ -1,0 +1,3 @@
+[submodule "upload/predictor/lightweight-human-pose-estimation-3d-demo.pytorch"]
+	path = upload/predictor/lightweight-human-pose-estimation-3d-demo.pytorch
+	url = https://github.com/Daniil-Osokin/lightweight-human-pose-estimation-3d-demo.pytorch
