@@ -130,6 +130,6 @@ dmypy.json
 
 #
 .vscode
-/upload/predictor/data/
-/upload/predictor/models/
-/upload/predictor/modules/
+app/predictor/data/
+app/predictor/models/
+app/predictor/modules/
