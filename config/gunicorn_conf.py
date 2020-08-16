@@ -2,9 +2,9 @@ import multiprocessing
 
 name = 'ihunch-escape'
 bind = 'unix:/project/ihunch_escape.sock'
-workers = multiprocessing.cpu_count() * 2 + 1
+workers = multiprocessing.cpu_count()
 keepalive = 32
-worker_connections = 1000 * workers
+worker_connections = 512 * workers
 worker_class = "gevent"
 reload = True
 loglevel = 'info'
