@@ -1,4 +1,7 @@
 # ihunch-escape
+Thanks!
+- <https://github.com/elastic7327/django-gunicorn-nginx-docker>
+- <https://github.com/cr4zyd3v/django-docker-ssl>
 
 ## Docker
 ```sh
