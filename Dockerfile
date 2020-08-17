@@ -52,27 +52,23 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 COPY . /project
 WORKDIR /project
 RUN PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
+    GIT_CLONE="git clone --depth 10" && \
     WGET="wget -q --no-check-certificate" && \
 # requirements
     $PIP_INSTALL -r requirements.txt && \
 # lightweight-human-pose-estimation-3d-demo.pytorch
-    git submodule init && git submodule update && \
+    $GIT_CLONE https://github.com/Daniil-Osokin/lightweight-human-pose-estimation-3d-demo.pytorch \
+               ihunch_escape/app/predictor/lightweight-human-pose-estimation-3d-demo.pytorch && \
     cd ihunch_escape/app/predictor/lightweight-human-pose-estimation-3d-demo.pytorch && \
     python setup.py build_ext && \
-    sed -i 's/from models/from ..models/g' modules/*.py && \
-    sed -i 's/from modules/from ..modules/g' models/*.py && \
-    sed -i 's/from modules/from /g' modules/*.py && \
-    sed -i 's/from pose_extractor/from ..pose_extractor/g' */*.py && \
-    mv models modules pose_extractor/build/pose_extractor.so .. && \
+    mv pose_extractor/build/pose_extractor.so .. && \
     cd .. && \
     rm -rf lightweight-human-pose-estimation-3d-demo.pytorch && \
 # pretrained model
-    $WGET \
-        'https://docs.google.com/uc?export=download&id=1niBUbUecPhKt3GyeDNukobL4OQ3jqssH' -O \
-        data/human-pose-estimation-3d.pth && \
-    $WGET \
-        'https://docs.google.com/uc?export=download&id=1DnQ9aUbkRBnfBTUGmD4ueT_zXsWmSKKQ' -O \
-        data/xgb-ihunch-prediction.bin
+    $WGET 'https://docs.google.com/uc?export=download&id=1niBUbUecPhKt3GyeDNukobL4OQ3jqssH' -O \
+          data/human-pose-estimation-3d.pth && \
+    $WGET 'https://docs.google.com/uc?export=download&id=1DnQ9aUbkRBnfBTUGmD4ueT_zXsWmSKKQ' -O \
+          data/xgb-ihunch-prediction.bin
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY config/nginx-app.conf /etc/nginx/sites-available/default

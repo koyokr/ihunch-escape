@@ -130,6 +130,5 @@ dmypy.json
 
 #
 .vscode
-app/predictor/data/
-app/predictor/models/
-app/predictor/modules/
+/ihunch_escape/app/predictor/data/*
+!/ihunch_escape/app/predictor/data/.keep
