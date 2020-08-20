@@ -74,5 +74,6 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY config/nginx-app.conf /etc/nginx/sites-available/default
 COPY config/supervisor-app-staging.conf /etc/supervisor/conf.d/
 
-CMD ["supervisord", "-n"]
+WORKDIR /project/ihunch_escape
+CMD ["/bin/sh", "-c", "python manage.py collectstatic --noinput; python manage.py migrate --noinput; supervisord -n"]
 EXPOSE 80 443
