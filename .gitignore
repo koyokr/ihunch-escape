@@ -131,4 +131,6 @@ dmypy.json
 #
 .vscode
 /ihunch_escape/app/predictor/data/*
-!/ihunch_escape/app/predictor/data/.keep
+/ihunch_escape/static/*
+
+!.keep
