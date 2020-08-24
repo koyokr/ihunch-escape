@@ -4,6 +4,15 @@ Thanks!
 - <https://github.com/elastic7327/django-gunicorn-nginx-docker>
 - <https://github.com/cr4zyd3v/django-docker-ssl>
 
+## Usage
+```py
+from requests import post
+r = post('https://api.ihunch.koyo.io/upload', files={'file': open('demo.jpg', 'rb')})
+d = r.json()
+if d['human']:
+    print('ihunch:', d['pred'])
+```
+
 ## Docker
 ```sh
 docker run --name ihunch \
@@ -11,7 +20,7 @@ docker run --name ihunch \
     --gpus device=0 \
     -e DJANGO_SECRET_KEY="generated key" \
     -v /etc/letsencrypt:/etc/letsencrypt \
-    -p 80:80 -p 443:443 \
+    -p 443:443 \
     koyokr/ihunch-escape
 ```
 
