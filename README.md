@@ -19,7 +19,7 @@ docker run --name ihunch \
     -it -d \
     --gpus device=0 \
     -e DJANGO_SECRET_KEY="generated key" \
-    -v /etc/letsencrypt:/etc/letsencrypt \
+    -v ~/docker/etc/letsencrypt:/etc/letsencrypt \
     -p 443:443 \
     koyokr/ihunch-escape
 ```
