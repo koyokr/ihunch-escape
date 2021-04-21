@@ -25,13 +25,13 @@ docker run --name ihunch \
 ```
 
 ## Requirements
-- CUDA 10.1 and CuDNN 7 (GeForce RTX 2080 Ti)
-- OpenCV 4.3.0
-- Python 3.6
-- PyTorch 1.6.0
-- Detectron2
-- XGBoost 1.1.1
-- Django REST framework 3.11.1
-- Gunicorn 20.0.4
-- Nginx
-- Supervisord
+- CUDA 11.2 and CuDNN 8 (GeForce RTX 3080)
+- OpenCV 4.5.1
+- Python 3.7
+- PyTorch 1.8.1
+- Detectron2 0.4
+- XGBoost 1.4.1
+- Django REST framework 3.12.4
+- Gunicorn 20.1.0
+- Nginx 1.18.0
+- Supervisord 4.1.0
