@@ -112,7 +112,7 @@ RUN PIP_INSTALL="python -m pip --no-cache-dir install --upgrade" && \
     $WGET 'https://docs.google.com/uc?export=download&id=1niBUbUecPhKt3GyeDNukobL4OQ3jqssH' -O \
           data/human-pose-estimation-3d.pth && \
     $WGET 'https://docs.google.com/uc?export=download&id=1DnQ9aUbkRBnfBTUGmD4ueT_zXsWmSKKQ' -O \
-          data/xgb-ihunch-prediction.bin && \
+          data/xgb-ihunch-prediction.bin
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY config/nginx-app.conf /etc/nginx/sites-available/default
