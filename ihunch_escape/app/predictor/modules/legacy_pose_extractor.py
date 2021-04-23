@@ -212,7 +212,7 @@ def extract_poses(heatmaps, pafs, upsample_ratio):
     all_keypoints_by_type = []
     for kpt_idx in range(num_keypoints):
         total_keypoints_num += extract_keypoints(heatmaps[kpt_idx], all_keypoints_by_type, total_keypoints_num)
-    
+
     pose_entries, all_keypoints = group_keypoints(all_keypoints_by_type, pafs)
 
     found_poses = []

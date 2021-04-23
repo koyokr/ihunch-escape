@@ -27,7 +27,7 @@ docker run --name ihunch \
 ## Requirements
 - CUDA 11.2 and CuDNN 8 (GeForce RTX 3080)
 - OpenCV 4.5.1
-- Python 3.7
+- Python 3.8
 - PyTorch 1.8.1
 - Detectron2 0.4
 - XGBoost 1.4.1
