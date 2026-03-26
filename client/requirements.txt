@@ -1,7 +1,7 @@
-filelock==3.0.12
+filelock==3.20.3
 matplotlib==3.3.1
 pandas==1.1.0
 PyQt5==5.15.0
-requests==2.32.2
+requests==2.33.0
 seaborn==0.10.1
 zroya==0.2.4
